@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <tool_dependency>
-    <package name="flexbar" version="2.4">
+    <package name="flexbar" version="2.5">
         <install version="1.0">
             <actions_group>
                 <actions os="linux" architecture="x86_64">
-                    <action type="download_by_url" target_filename="flexbar_v2.4_linux64.tgz">http://sourceforge.net/projects/flexbar/files/2.4/flexbar_v2.4_linux64.tgz</action>
+                    <action type="download_by_url" target_filename="flexbar_v2.5_linux64.tgz">https://github.com/seqan/flexbar/releases/download/v2.5.0/flexbar_v2.5_linux64.tgz</action>
                     <action type="move_directory_files">
                         <source_directory>.</source_directory>
                         <destination_directory>$INSTALL_DIR</destination_directory>
@@ -17,8 +17,8 @@
             </actions_group>
         </install>
         <readme>
-Program: flexbar - flexible barcode and adapter removal
-Version: 2.4
+flexbar - flexible barcode and adapter removal
+==============================================
 
 SYNOPSIS
     flexbar -r reads [-t target] [-b barcodes] [-a adapters] [options]
@@ -26,8 +26,8 @@ SYNOPSIS
 DESCRIPTION
     -h, --help
           Displays this help message.
-    -w, --advanced
-          Print advanced options help screen.
+    -H, --advanced
+          Print help with advanced options.
     -i, --cite
           Show program reference for citation.
 
@@ -47,15 +47,15 @@ DESCRIPTION
 
   Barcode detection:
     -b, --barcodes FILE
-          Fasta file with barcodes for demultiplexing that may contain N.
+          Fasta file with barcodes for demultiplexing, may contain N.
     -br, --barcode-reads FILE
-          Fasta/q file composed of separate barcode reads for detection.
+          Fasta/q file containing separate barcode reads for detection.
     -be, --barcode-trim-end STR
           Type of detection, see section trim-end modes. Default: ANY.
     -bo, --barcode-min-overlap NUM
           Minimum overlap of barcode and read. Default: barcode length.
     -bt, --barcode-threshold NUM
-          Allowed mismatches and gaps per 10 bases overlap. Default: 1.0.
+          Allowed mismatches and gaps per overlap of 10. Default: 1.0.
     -bu, --barcode-unassigned
           Include unassigned reads in output generation.
 
@@ -67,9 +67,9 @@ DESCRIPTION
     -ae, --adapter-trim-end STR
           Type of removal, see section trim-end modes. Default: RIGHT.
     -ao, --adapter-min-overlap NUM
-          Minimum overlap of adapter and read sequence. Default: 1.
+          Minimum overlap of adapter and read for removal. Default: 3.
     -at, --adapter-threshold NUM
-          Allowed mismatches and gaps per 10 bases overlap. Default: 3.0.
+          Allowed mismatches and gaps per overlap of 10. Default: 3.0.
 
   Filtering and trimming:
     -u, --max-uncalled NUM
@@ -87,15 +87,15 @@ DESCRIPTION
 
   Output selection:
     -o, --fasta-output
-          Prefer non-quality formats fasta and csfasta for output.
+          Prefer non-quality format fasta or csfasta for output.
     -z, --zip-output STR
-          Enable direct compression of output files. One of GZ and BZ2.
+          Direct compression of output files. One of GZ and BZ2.
     -s, --single-reads
           Write single paired reads for too short counterparts.
 
   Logging and tagging:
     -l, --log-level STR
-          Print valid optimal read alignment. One of ALL, MOD, and TAB.
+          Print chosen read alignments. One of ALL, MOD, and TAB.
     -g, --removal-tags
           Tag reads that are subject to adapter or barcode removal.
 
@@ -111,10 +111,10 @@ EXAMPLES
     flexbar -r reads.csfastq.gz -a adap.fa -ao 5 -ae LEFT -c
 
 VERSION
-    flexbar version: 2.4
-    Last update July 29, 2013
+    flexbar version: 2.5
+    Last update June 30, 2014
 
-Advanced options: flexbar -w
+Advanced options: flexbar -H
         </readme>
     </package>
 </tool_dependency>
